@@ -1,6 +1,8 @@
->>> from bookshelf.models import Book
->>> b = Book(title="atomic habits",author="james clear",publication_year=2015)
->>> b.save()
->>> b
+from bookshelf.models import Book
 
-# <Book: Book object (1)>
+book = Book.objects.create(
+    title="1984",
+    author="George Orwell",
+    publication_year=1949
+)
+
