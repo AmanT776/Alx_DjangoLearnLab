@@ -1,6 +1,5 @@
->>> from bookshelf.models import Book
->>> books = Book.objects.all()
->>> for book in books:
-...     print(book.title,book.author,book.publication_year)
+from bookshelf.models import Book
 
-# atomic habits james clear 2015
+book = Book.objects.get(title="1984")
+
+print(book)
