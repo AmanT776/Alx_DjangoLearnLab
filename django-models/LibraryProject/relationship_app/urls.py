@@ -1,6 +1,5 @@
 from django.urls import path, reverse_lazy
 from .views import LibraryDetailView, list_books, register
-from . import views.register
 from django.contrib.auth.views import LogoutView,LoginView
 
 urlpatterns = [
