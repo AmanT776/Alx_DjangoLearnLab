@@ -6,7 +6,7 @@ from .models import Book,Author,Library
 def list_all_books(request):
     books = Book.objects.all()
     content = {"books": books}
-    return render(request,"list_books.html",content)
+    return render(request,"relationship_app/list_books.html",content)
 class list_all_books_in_library(ListView):
     model = Library
     context_object_name = "libraries"
@@ -18,4 +18,4 @@ class list_all_books_in_library(ListView):
         libraries = context["libraries"]
         books = [book.title for library in libraries for book in library.books.all()]
         content = {"libraries": libraries , "books": books}
-        return render(self.request,"library_detail.html",content)
+        return render(self.request,"relationship_app/library_detail.html",content)
