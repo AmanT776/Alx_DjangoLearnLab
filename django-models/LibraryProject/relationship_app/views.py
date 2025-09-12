@@ -13,7 +13,7 @@ from .models import Library,Book,Author
 
 from django.contrib.auth import login
 
-class SignupView(CreateView):
+class register(CreateView):
     form_class = UserCreationForm
     template_name = 'relationship_app/register.html'
     success_url = reverse_lazy('login')
