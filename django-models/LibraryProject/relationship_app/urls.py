@@ -1,7 +1,6 @@
 from django.urls import path, reverse_lazy
 from .views import admin_view, librarian_view, member_view, RegisterView, list_books, LibraryDetailView, BookCreateView, BookUpdateView, BookDeleteView
 from django.contrib.auth.views import LogoutView, LoginView
-["add_book/", "edit_book/", "delete_book"]
 urlpatterns = [
     path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),
     path('signup/', RegisterView.as_view(), name='signup'),
