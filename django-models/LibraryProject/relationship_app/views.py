@@ -5,15 +5,29 @@ from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+from django.contrib.auth.views import LoginView
 from .models import Library,Book,Author
+
 
 # Create your views here.
 
+from django.contrib.auth import login
+
 class SignupView(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy('books')
     template_name = 'relationship_app/register.html'
+    success_url = reverse_lazy('login')
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        login(self.request, self.object)
+        return response
+
+
+class LoginView(LoginView):
+    template_name="relationship_app/login.html"
+    redirect_authenticated_user = True
+    reverse_lazy('books')
 
 def list_books(request):
     books = Book.objects.all()
