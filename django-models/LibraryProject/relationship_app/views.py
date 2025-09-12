@@ -4,7 +4,7 @@ from django.views.generic.detail import DetailView
 from django.http import HttpResponse
 from .models import Library,Book,Author
 # Create your views here.
-def list_all_books(request):
+def list_books(request):
     books = Book.objects.all()
     content = {"books": books}
     return render(request,"relationship_app/list_books.html",content)
