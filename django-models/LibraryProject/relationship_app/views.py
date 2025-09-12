@@ -19,4 +19,4 @@ class LibraryDetailView(ListView):
         libraries = context["libraries"]
         library = [library for library in libraries]
         content = {"libraries": library}
-        return render(self.request,"relationship_app/library_detail.html",content)
+        return render(self.request,"library_detail.html",content)
