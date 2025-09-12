@@ -608,7 +608,7 @@
         "kind": 5,
         "importPath": "LibraryProject.relationship_app.urls",
         "description": "LibraryProject.relationship_app.urls",
-        "peekOfCode": "urlpatterns = [\n    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),\n    path('signup/', RegisterView.as_view(), name='signup'),\n    path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),\n    path('books/', list_books, name='books'),\n    path('library/', LibraryDetailView.as_view(), name='library_detail'),\n    path('library/admin/', admin_view, name='admin_dashboard'),\n    path('library/librarian/', librarian_view, name='librarian_dashboard'),\n    path('library/member/', member_view, name='member_dashboard'),\n    path('books/add/', BookCreateView.as_view(), name='book_add'),",
+        "peekOfCode": "urlpatterns = [\n    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),\n    path('signup/', RegisterView.as_view(), name='signup'),\n    path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),\n    path('books/', list_books, name='books'),\n    path('library/', LibraryDetailView.as_view(), name='library_detail'),\n    path('library/admin/', admin_view, name='admin_dashboard'),\n    path('library/librarian/', librarian_view, name='librarian_dashboard'),\n    path('library/member/', member_view, name='member_dashboard'),\n    path('add_book/', BookCreateView.as_view(), name='book_add'),",
         "detail": "LibraryProject.relationship_app.urls",
         "documentation": {}
     },
