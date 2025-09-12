@@ -628,7 +628,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def check_admin_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'ADMIN'\n@user_passes_test(check_admin_role)\ndef admin_view(request):\n    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})",
+        "peekOfCode": "def check_admin_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'ADMIN'\n@user_passes_test(check_admin_role)\ndef admin_view(request):\n    return render(request, 'relationship_app/admin_view.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -637,7 +637,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def admin_view(request):\n    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)",
+        "peekOfCode": "def admin_view(request):\n    return render(request, 'relationship_app/admin_view.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -646,7 +646,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})",
+        "peekOfCode": "def check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -655,7 +655,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'",
+        "peekOfCode": "def librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -664,7 +664,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):",
+        "peekOfCode": "def check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -673,7 +673,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response",
+        "peekOfCode": "def member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },

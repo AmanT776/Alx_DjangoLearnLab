@@ -20,20 +20,20 @@ def check_admin_role(user):
 
 @user_passes_test(check_admin_role)
 def admin_view(request):
-    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})
+    return render(request, 'relationship_app/admin_view.html', {'message': 'Welcome to the Admin Dashboard'})
 
 def check_librarian_role(user):
     return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'
 
 @user_passes_test(check_librarian_role)
 def librarian_view(request):
-    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})
+    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})
 def check_member_role(user):
     return hasattr(user, 'profile') and user.profile.role == 'MEMBER'
 
 @user_passes_test(check_member_role)
 def member_view(request):
-    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})
+    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})
 
 
 class register(CreateView):
