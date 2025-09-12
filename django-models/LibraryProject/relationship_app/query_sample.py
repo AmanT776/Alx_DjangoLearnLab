@@ -8,12 +8,11 @@ def query_all_books_by_author(author_name):
 
 def list_all_books_in_library(library_name):
     library = models.Library.objects.get(name=library_name)
-    books = models.Book.objects.filter(library=library)
+    books = models.Book.objects.filter(libraries=library)
     for book in books:
         print(book.title)
 
 def retrieve_librarian_for_library(library_name):
     library = models.Library.objects.get(name=library_name)
-    librarians = models.Librarian.objects.filter(library=library)
-    for librarian in librarians:
-        print(librarian.name)
+    librarian = library.librarian  
+    print(librarian.name)
