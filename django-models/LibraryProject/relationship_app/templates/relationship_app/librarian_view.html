@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .message {
+            color: #27ae60;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Librarian Dashboard</h1>
+        <p class="message">{{ message }}</p>
+        <h2>Librarian Tools</h2>
+        <ul>
+            <li><a href="#">Manage Books</a></li>
+            <li><a href="#">Issue Books</a></li>
+            <li><a href="#">Track Returns</a></li>
+            <li><a href="#">Catalog Management</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,698 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "LogoutView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "importPath": "django.contrib.auth.views",
+        "description": "django.contrib.auth.views",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "render",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DetailView",
+        "importPath": "django.views.generic.detail",
+        "description": "django.views.generic.detail",
+        "isExtraImport": true,
+        "detail": "django.views.generic.detail",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseForbidden",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.forms",
+        "documentation": {}
+    },
+    {
+        "label": "user_passes_test",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.asgi",
+        "description": "LibraryProject.LibraryProject.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "LibraryProject.LibraryProject.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Build paths inside the project like this: BASE_DIR / 'subdir'.\nBASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-ffkzs4qmuf+13i)6!fyvto!wyf+kxe2nxu#lyit*bh^f^am_0w'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-ffkzs4qmuf+13i)6!fyvto!wyf+kxe2nxu#lyit*bh^f^am_0w'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-ffkzs4qmuf+13i)6!fyvto!wyf+kxe2nxu#lyit*bh^f^am_0w'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #local",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    #local\n    'relationship_app.apps.RelationshipAppConfig'\n]",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'LibraryProject.urls'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "ROOT_URLCONF = 'LibraryProject.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\"relationship_app.templates\"],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\"relationship_app.templates\"],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'LibraryProject.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.settings",
+        "description": "LibraryProject.LibraryProject.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "LibraryProject.LibraryProject.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.urls",
+        "description": "LibraryProject.LibraryProject.urls",
+        "peekOfCode": "urlpatterns = [\n    path('',include('relationship_app.urls')),\n    path('admin/', admin.site.urls),\n]",
+        "detail": "LibraryProject.LibraryProject.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "LibraryProject.LibraryProject.wsgi",
+        "description": "LibraryProject.LibraryProject.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "LibraryProject.LibraryProject.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.migrations.0001_initial",
+        "description": "LibraryProject.relationship_app.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Author',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(max_length=100)),",
+        "detail": "LibraryProject.relationship_app.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.migrations.0002_book_publication_year",
+        "description": "LibraryProject.relationship_app.migrations.0002_book_publication_year",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('relationship_app', '0001_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='book',\n            name='publication_year',\n            field=models.DateField(default=datetime.date.today),\n        ),",
+        "detail": "LibraryProject.relationship_app.migrations.0002_book_publication_year",
+        "documentation": {}
+    },
+    {
+        "label": "RelationshipAppConfig",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.apps",
+        "description": "LibraryProject.relationship_app.apps",
+        "peekOfCode": "class RelationshipAppConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'relationship_app'",
+        "detail": "LibraryProject.relationship_app.apps",
+        "documentation": {}
+    },
+    {
+        "label": "Author",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.models",
+        "description": "LibraryProject.relationship_app.models",
+        "peekOfCode": "class Author(models.Model):\n    name = models.CharField(max_length=100)\n    def __str__(self):\n        return self.name\nclass Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey(Author,on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    def __str__(self):\n        return self.title",
+        "detail": "LibraryProject.relationship_app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Book",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.models",
+        "description": "LibraryProject.relationship_app.models",
+        "peekOfCode": "class Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey(Author,on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    def __str__(self):\n        return self.title\nclass Library(models.Model):\n    name = models.CharField(max_length=30)\n    books = models.ManyToManyField(Book,related_name=\"books\")\n    def __str__(self):",
+        "detail": "LibraryProject.relationship_app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Library",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.models",
+        "description": "LibraryProject.relationship_app.models",
+        "peekOfCode": "class Library(models.Model):\n    name = models.CharField(max_length=30)\n    books = models.ManyToManyField(Book,related_name=\"books\")\n    def __str__(self):\n        return self.name\nclass Librarian(models.Model):\n    name = models.CharField(max_length=30)\n    library = models.OneToOneField(Library,on_delete=models.CASCADE)\n    def __str__(self):\n        return self.name",
+        "detail": "LibraryProject.relationship_app.models",
+        "documentation": {}
+    },
+    {
+        "label": "Librarian",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.models",
+        "description": "LibraryProject.relationship_app.models",
+        "peekOfCode": "class Librarian(models.Model):\n    name = models.CharField(max_length=30)\n    library = models.OneToOneField(Library,on_delete=models.CASCADE)\n    def __str__(self):\n        return self.name\nclass UserProfile(models.Model):\n    ROLE_CHOICES = (\n        ('ADMIN', 'Admin'),\n        ('LIBRARIAN', 'Librarian'),\n        ('MEMBER', 'Member'),",
+        "detail": "LibraryProject.relationship_app.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProfile",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.models",
+        "description": "LibraryProject.relationship_app.models",
+        "peekOfCode": "class UserProfile(models.Model):\n    ROLE_CHOICES = (\n        ('ADMIN', 'Admin'),\n        ('LIBRARIAN', 'Librarian'),\n        ('MEMBER', 'Member'),\n    )\n    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')\n    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='MEMBER')\n    def __str__(self):\n        return f\"{self.user.username} - {self.get_role_display()}\"",
+        "detail": "LibraryProject.relationship_app.models",
+        "documentation": {}
+    },
+    {
+        "label": "query_all_books_by_author",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.query_samples",
+        "description": "LibraryProject.relationship_app.query_samples",
+        "peekOfCode": "def query_all_books_by_author(author_name):\n    author = models.Author.objects.get(name=author_name)\n    books = models.Book.objects.filter(author=author)\n    for book in books:\n        print(f\"{book.id} {book.title}\")\ndef list_all_books_in_library(library_name):\n    library = models.Library.objects.get(name=library_name)\n    books = library.books.all()  \n    for book in books:\n        print(book.title)",
+        "detail": "LibraryProject.relationship_app.query_samples",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_books_in_library",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.query_samples",
+        "description": "LibraryProject.relationship_app.query_samples",
+        "peekOfCode": "def list_all_books_in_library(library_name):\n    library = models.Library.objects.get(name=library_name)\n    books = library.books.all()  \n    for book in books:\n        print(book.title)\ndef retrieve_librarian_for_library(library_name):\n    librarian = models.Librarian.objects.get(library=library_name)\n    print(librarian.name)",
+        "detail": "LibraryProject.relationship_app.query_samples",
+        "documentation": {}
+    },
+    {
+        "label": "retrieve_librarian_for_library",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.query_samples",
+        "description": "LibraryProject.relationship_app.query_samples",
+        "peekOfCode": "def retrieve_librarian_for_library(library_name):\n    librarian = models.Librarian.objects.get(library=library_name)\n    print(librarian.name)",
+        "detail": "LibraryProject.relationship_app.query_samples",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "LibraryProject.relationship_app.urls",
+        "description": "LibraryProject.relationship_app.urls",
+        "peekOfCode": "urlpatterns = [\n    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),\n    path('signup/',register.as_view(),name='signup'),\n    path('logout/',LogoutView.as_view(template_name=\"relationship_app/logout.html\",),name='logout'),\n    path('books/',list_books,name='books'),\n    path('library/',LibraryDetailView.as_view()),\n    path('library/admin/',admin_view),\n    path('library/librarian/',librarian_view),\n    path('library/member/',member_view)\n]",
+        "detail": "LibraryProject.relationship_app.urls",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response\nclass LoginView(LoginView):\n    template_name=\"relationship_app/login.html\"",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "LoginView",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class LoginView(LoginView):\n    template_name=\"relationship_app/login.html\"\n    redirect_authenticated_user = True\n    reverse_lazy('books')\ndef list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request,\"relationship_app/list_books.html\",content)\nclass LibraryDetailView(ListView):\n    model = Library",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "LibraryDetailView",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()\n    def render_to_response(self, context, **response_kwargs):\n        libraries = context[\"libraries\"]\n        library = [library for library in libraries]\n        content = {\"libraries\": library}\n        return render(self.request,\"relationship_app/library_detail.html\",content)",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "check_admin_role",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def check_admin_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'ADMIN'\n@user_passes_test(check_admin_role)\ndef admin_view(request):\n    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "admin_view",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def admin_view(request):\n    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})\ndef check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "check_librarian_role",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def check_librarian_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'\n@user_passes_test(check_librarian_role)\ndef librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "librarian_view",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def librarian_view(request):\n    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "check_member_role",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "member_view",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def member_view(request):\n    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "list_books",
+        "kind": 2,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "def list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request,\"relationship_app/list_books.html\",content)\nclass LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()\n    def render_to_response(self, context, **response_kwargs):",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "LibraryProject.manage",
+        "description": "LibraryProject.manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'LibraryProject.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "LibraryProject.manage",
+        "documentation": {}
+    }
+]

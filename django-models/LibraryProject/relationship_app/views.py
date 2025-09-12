@@ -7,11 +7,34 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from django.contrib.auth.views import LoginView
 from .models import Library,Book,Author
+from django.shortcuts import render
+from django.contrib.auth.decorators import user_passes_test
+from django.http import HttpResponseForbidden
 
 
 # Create your views here.
 
 from django.contrib.auth import login
+def check_admin_role(user):
+    return hasattr(user, 'profile') and user.profile.role == 'ADMIN'
+
+@user_passes_test(check_admin_role)
+def admin_view(request):
+    return render(request, 'admin_dashboard.html', {'message': 'Welcome to the Admin Dashboard'})
+
+def check_librarian_role(user):
+    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'
+
+@user_passes_test(check_librarian_role)
+def librarian_view(request):
+    return render(request, 'librarian_dashboard.html', {'message': 'Welcome to the Librarian Dashboard'})
+def check_member_role(user):
+    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'
+
+@user_passes_test(check_member_role)
+def member_view(request):
+    return render(request, 'member_dashboard.html', {'message': 'Welcome to the Member Dashboard'})
+
 
 class register(CreateView):
     form_class = UserCreationForm()
