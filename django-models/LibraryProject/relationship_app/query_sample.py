@@ -4,7 +4,7 @@ def get_book_by_author(author_name):
     author = models.Author.objects.get(name=author_name)
     books = models.Book.objects.filter(author_id=author.id)
     for book in books:
-        print(f"{book.id} {book.name}")
+        print(f"{book.id} {book.title}")
 
 def get_all_books():
     books = models.Book.objects.all()
