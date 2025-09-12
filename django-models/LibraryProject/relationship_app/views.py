@@ -1,9 +1,21 @@
 from django.shortcuts import render
-from django.views import View
+from django.views.generic import ListView
 from django.http import HttpResponse
-from .models import Book,Author
+from .models import Book,Author,Library
 # Create your views here.
 def list_all_books(request):
     books = Book.objects.all()
-    titles = ", ".join(book.title + " " +  book.author.name for book in books)
-    return HttpResponse(titles)
+    content = {"books": books}
+    return render(request,"list_books.html",content)
+class list_all_books_in_library(ListView):
+    model = Library
+    context_object_name = "libraries"
+    
+    def get_queryset(self):
+        return super().get_queryset()
+
+    def render_to_response(self, context, **response_kwargs):
+        libraries = context["libraries"]
+        books = [book.title for library in libraries for book in library.books.all()]
+        content = {"libraries": libraries , "books": books}
+        return render(self.request,"library_detail.html",content)
