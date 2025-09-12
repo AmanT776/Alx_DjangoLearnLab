@@ -8,7 +8,7 @@ def query_all_books_by_author(author_name):
 
 def list_all_books_in_library(library_name):
     library = models.Library.objects.get(name=library_name)
-    books = library.book_set.all()  # uses .all()
+    books = library.books.all()  
     for book in books:
         print(book.title)
 
