@@ -13,7 +13,7 @@ def get_all_books():
 
 def get_librarian(library_name):
     library = models.Library.objects.get(name=library_name)
-    librarians = models.Librarian.objects.filter(Library_id=library.id)
+    librarians = models.Librarian.objects.filter(library_id=library.id)
     for librarian in librarians:
         print(librarian.name)
         
