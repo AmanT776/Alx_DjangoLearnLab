@@ -12,11 +12,19 @@ class Author(models.Model):
         return self.name
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author,on_delete=models.CASCADE)
+    author = models.ForeignKey('Author', on_delete=models.CASCADE)
     publication_year = models.DateField(default=datetime.date.today)
+
+    class Meta:
+        permissions = (
+            ('can_add_book', 'Can add book'),
+            ('can_change_book', 'Can change book'),
+            ('can_delete_book', 'Can delete book'),
+        )
 
     def __str__(self):
         return self.title
+
 class Library(models.Model):
     name = models.CharField(max_length=30)
     books = models.ManyToManyField(Book,related_name="books")

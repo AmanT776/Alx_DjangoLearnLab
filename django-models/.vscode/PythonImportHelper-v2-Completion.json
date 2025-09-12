@@ -219,14 +219,6 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
         "label": "ListView",
         "importPath": "django.views.generic",
         "description": "django.views.generic",
@@ -243,27 +235,19 @@
         "documentation": {}
     },
     {
-        "label": "DetailView",
-        "importPath": "django.views.generic.detail",
-        "description": "django.views.generic.detail",
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
         "isExtraImport": true,
-        "detail": "django.views.generic.detail",
+        "detail": "django.views.generic",
         "documentation": {}
     },
     {
-        "label": "HttpResponse",
-        "importPath": "django.http",
-        "description": "django.http",
+        "label": "DeleteView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
         "isExtraImport": true,
-        "detail": "django.http",
-        "documentation": {}
-    },
-    {
-        "label": "HttpResponseForbidden",
-        "importPath": "django.http",
-        "description": "django.http",
-        "isExtraImport": true,
-        "detail": "django.http",
+        "detail": "django.views.generic",
         "documentation": {}
     },
     {
@@ -275,6 +259,14 @@
         "documentation": {}
     },
     {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
         "label": "user_passes_test",
         "importPath": "django.contrib.auth.decorators",
         "description": "django.contrib.auth.decorators",
@@ -283,11 +275,27 @@
         "documentation": {}
     },
     {
-        "label": "login",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
+        "label": "permission_required",
+        "importPath": "django.contrib.auth.decorators",
+        "description": "django.contrib.auth.decorators",
         "isExtraImport": true,
-        "detail": "django.contrib.auth",
+        "detail": "django.contrib.auth.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionRequiredMixin",
+        "importPath": "django.contrib.auth.mixins",
+        "description": "django.contrib.auth.mixins",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.mixins",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseForbidden",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
         "documentation": {}
     },
     {
@@ -520,7 +528,7 @@
         "kind": 6,
         "importPath": "LibraryProject.relationship_app.models",
         "description": "LibraryProject.relationship_app.models",
-        "peekOfCode": "class Author(models.Model):\n    name = models.CharField(max_length=100)\n    def __str__(self):\n        return self.name\nclass Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey(Author,on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    def __str__(self):\n        return self.title",
+        "peekOfCode": "class Author(models.Model):\n    name = models.CharField(max_length=100)\n    def __str__(self):\n        return self.name\nclass Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey('Author', on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    class Meta:\n        permissions = (",
         "detail": "LibraryProject.relationship_app.models",
         "documentation": {}
     },
@@ -529,7 +537,7 @@
         "kind": 6,
         "importPath": "LibraryProject.relationship_app.models",
         "description": "LibraryProject.relationship_app.models",
-        "peekOfCode": "class Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey(Author,on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    def __str__(self):\n        return self.title\nclass Library(models.Model):\n    name = models.CharField(max_length=30)\n    books = models.ManyToManyField(Book,related_name=\"books\")\n    def __str__(self):",
+        "peekOfCode": "class Book(models.Model):\n    title = models.CharField(max_length=100)\n    author = models.ForeignKey('Author', on_delete=models.CASCADE)\n    publication_year = models.DateField(default=datetime.date.today)\n    class Meta:\n        permissions = (\n            ('can_add_book', 'Can add book'),\n            ('can_change_book', 'Can change book'),\n            ('can_delete_book', 'Can delete book'),\n        )",
         "detail": "LibraryProject.relationship_app.models",
         "documentation": {}
     },
@@ -592,25 +600,25 @@
         "kind": 5,
         "importPath": "LibraryProject.relationship_app.urls",
         "description": "LibraryProject.relationship_app.urls",
-        "peekOfCode": "urlpatterns = [\n    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),\n    path('signup/',register.as_view(),name='signup'),\n    path('logout/',LogoutView.as_view(template_name=\"relationship_app/logout.html\",),name='logout'),\n    path('books/',list_books,name='books'),\n    path('library/',LibraryDetailView.as_view()),\n    path('library/admin/',admin_view),\n    path('library/librarian/',librarian_view),\n    path('library/member/',member_view)\n]",
+        "peekOfCode": "urlpatterns = [\n    path('login/', LoginView.as_view(template_name='relationship_app/login.html'), name='login'),\n    path('signup/', RegisterView.as_view(), name='signup'),\n    path('logout/', LogoutView.as_view(template_name='relationship_app/logout.html'), name='logout'),\n    path('books/', list_books, name='books'),\n    path('library/', LibraryDetailView.as_view(), name='library_detail'),\n    path('library/admin/', admin_view, name='admin_dashboard'),\n    path('library/librarian/', librarian_view, name='librarian_dashboard'),\n    path('library/member/', member_view, name='member_dashboard'),\n    path('books/add/', BookCreateView.as_view(), name='book_add'),",
         "detail": "LibraryProject.relationship_app.urls",
         "documentation": {}
     },
     {
-        "label": "register",
+        "label": "RegisterView",
         "kind": 6,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "class register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response\nclass LoginView(LoginView):\n    template_name=\"relationship_app/login.html\"",
+        "peekOfCode": "class RegisterView(CreateView):\n    form_class = UserCreationForm\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response\nclass CustomLoginView(LoginView):\n    template_name = 'relationship_app/login.html'",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
     {
-        "label": "LoginView",
+        "label": "CustomLoginView",
         "kind": 6,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "class LoginView(LoginView):\n    template_name=\"relationship_app/login.html\"\n    redirect_authenticated_user = True\n    reverse_lazy('books')\ndef list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request,\"relationship_app/list_books.html\",content)\nclass LibraryDetailView(ListView):\n    model = Library",
+        "peekOfCode": "class CustomLoginView(LoginView):\n    template_name = 'relationship_app/login.html'\n    redirect_authenticated_user = True\n    success_url = reverse_lazy('books')\n# Book listing view (unchanged, no permission required for viewing)\ndef list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request, \"relationship_app/list_books.html\", content)\n# Library detail view (unchanged, no permission required for viewing)",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -619,7 +627,34 @@
         "kind": 6,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "class LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()\n    def render_to_response(self, context, **response_kwargs):\n        libraries = context[\"libraries\"]\n        library = [library for library in libraries]\n        content = {\"libraries\": library}\n        return render(self.request,\"relationship_app/library_detail.html\",content)",
+        "peekOfCode": "class LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()\n    def render_to_response(self, context, **response_kwargs):\n        libraries = context[\"libraries\"]\n        library = [library for library in libraries]\n        content = {\"libraries\": library}\n        return render(self.request, \"relationship_app/library_detail.html\", content)",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookCreateView",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class BookCreateView(PermissionRequiredMixin, CreateView):\n    model = Book\n    fields = ['title', 'author', 'publication_year']\n    template_name = 'relationship_app/book_form.html'\n    success_url = reverse_lazy('books')\n    permission_required = 'relationship_app.can_add_book'\n    def form_valid(self, form):\n        return super().form_valid(form)\nclass BookUpdateView(PermissionRequiredMixin, UpdateView):\n    model = Book",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookUpdateView",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class BookUpdateView(PermissionRequiredMixin, UpdateView):\n    model = Book\n    fields = ['title', 'author', 'publication_year']\n    template_name = 'relationship_app/book_form.html'\n    success_url = reverse_lazy('books')\n    permission_required = 'relationship_app.can_change_book'\n    def form_valid(self, form):\n        return super().form_valid(form)\nclass BookDeleteView(PermissionRequiredMixin, DeleteView):\n    model = Book",
+        "detail": "LibraryProject.relationship_app.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookDeleteView",
+        "kind": 6,
+        "importPath": "LibraryProject.relationship_app.views",
+        "description": "LibraryProject.relationship_app.views",
+        "peekOfCode": "class BookDeleteView(PermissionRequiredMixin, DeleteView):\n    model = Book\n    template_name = 'relationship_app/book_confirm_delete.html'\n    success_url = reverse_lazy('books')\n    permission_required = 'relationship_app.can_delete_book'",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -655,7 +690,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'",
+        "peekOfCode": "def librarian_view(request):\n    return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})\ndef check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\n# User registration and login views\nclass RegisterView(CreateView):\n    form_class = UserCreationForm",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -664,7 +699,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):",
+        "peekOfCode": "def check_member_role(user):\n    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'\n@user_passes_test(check_member_role)\ndef member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\n# User registration and login views\nclass RegisterView(CreateView):\n    form_class = UserCreationForm\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -673,7 +708,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\nclass register(CreateView):\n    form_class = UserCreationForm()\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)\n        return response",
+        "peekOfCode": "def member_view(request):\n    return render(request, 'relationship_app/member_view.html', {'message': 'Welcome to the Member Dashboard'})\n# User registration and login views\nclass RegisterView(CreateView):\n    form_class = UserCreationForm\n    template_name = 'relationship_app/register.html'\n    success_url = reverse_lazy('login')\n    def form_valid(self, form):\n        response = super().form_valid(form)\n        login(self.request, self.object)",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
@@ -682,7 +717,7 @@
         "kind": 2,
         "importPath": "LibraryProject.relationship_app.views",
         "description": "LibraryProject.relationship_app.views",
-        "peekOfCode": "def list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request,\"relationship_app/list_books.html\",content)\nclass LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()\n    def render_to_response(self, context, **response_kwargs):",
+        "peekOfCode": "def list_books(request):\n    books = Book.objects.all()\n    content = {\"books\": books}\n    return render(request, \"relationship_app/list_books.html\", content)\n# Library detail view (unchanged, no permission required for viewing)\nclass LibraryDetailView(ListView):\n    model = Library\n    context_object_name = \"libraries\"\n    def get_queryset(self):\n        return super().get_queryset()",
         "detail": "LibraryProject.relationship_app.views",
         "documentation": {}
     },
