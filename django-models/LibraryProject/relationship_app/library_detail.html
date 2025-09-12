@@ -1,26 +1,17 @@
+<!-- library_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library Detail</title>
 </head>
 <body>
-   <div style="display: flex;">
-        <div>
-            {%for library in libraries%}
-            <ul>
-                <li>{{library.name}} </li>
-            </ul>
-                {%endfor%}
-        </div>
-        <div>
-                {%for book in books%}
-                <ul>
-                <li>{{book.title}} </li>
-            </ul>
-            {%endfor%}
-    </div>
-   </div>
+    <h1>Library: {{ library.name }}</h1>
+    <h2>Books in Library:</h2>
+    <ul>
+        {% for book in library.books.all %}
+        <li>{{ book.title }} by {{ book.author.name }} (Published {{ book.publication_year }})</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
