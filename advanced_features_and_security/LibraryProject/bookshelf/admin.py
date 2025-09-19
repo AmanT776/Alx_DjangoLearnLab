@@ -3,7 +3,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
-from .models import User, UserProfile
+from LibraryProject.bookshelf.admin import CustomUserAdmin
+from .models import User, UserProfile,CustomUser,CustomUserAdmin
 
 @admin.register(User)
 class CustomUserAdmin(BaseUserAdmin):
@@ -23,6 +24,8 @@ class CustomUserAdmin(BaseUserAdmin):
     list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'date_of_birth')
     search_fields = ('username', 'email', 'first_name', 'last_name')
     ordering = ('username',)
+
+admin.site.register(CustomUser, CustomUserAdmin)
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
