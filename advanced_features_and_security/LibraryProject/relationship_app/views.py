@@ -7,26 +7,26 @@ from django.contrib.auth import login
 from django.contrib.auth.decorators import user_passes_test, permission_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.decorators import permission_required
-from .models import Library, Book, Author
+from .models import Library, Book, Author,User
 from django.http import HttpResponseForbidden
 
 # Role-based view checks
 def check_admin_role(user):
-    return hasattr(user, 'profile') and user.profile.role == 'ADMIN'
+    return hasattr(User, 'profile') and User.profile.role == 'ADMIN'
 
 @user_passes_test(check_admin_role)
 def admin_view(request):
     return render(request, 'relationship_app/admin_view.html', {'message': 'Welcome to the Admin Dashboard'})
 
 def check_librarian_role(user):
-    return hasattr(user, 'profile') and user.profile.role == 'LIBRARIAN'
+    return hasattr(User, 'profile') and User.profile.role == 'LIBRARIAN'
 
 @user_passes_test(check_librarian_role)
 def librarian_view(request):
     return render(request, 'relationship_app/librarian_view.html', {'message': 'Welcome to the Librarian Dashboard'})
 
 def check_member_role(user):
-    return hasattr(user, 'profile') and user.profile.role == 'MEMBER'
+    return hasattr(User, 'profile') and User.profile.role == 'MEMBER'
 
 @user_passes_test(check_member_role)
 def member_view(request):
