@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Search Books</h2>
+
+  <form method="get" action="{% url 'book_search' %}">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+
+  {% if books %}
+    <h3>Search Results:</h3>
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>{{ book.title }}</strong> by {{ book.author.name }} ({{ book.publication_year|date:"Y" }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% elif form.cleaned_data.q %}
+    <p>No books found for "{{ form.cleaned_data.q }}".</p>
+  {% endif %}
+{% endblock %}
