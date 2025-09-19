@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Book List</h2>
+
+  {% if books %}
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>{{ book.title }}</strong><br>
+          Author: {{ book.author.name }}<br>
+          Published: {{ book.publication_year|date:"Y-m-d" }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No books available.</p>
+  {% endif %}
+{% endblock %}
