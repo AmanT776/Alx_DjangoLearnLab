@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.db.models import Q
 from .models import Library, Book, Author, User
-from .forms import BookSearchForm
+from .forms import ExampleForm
 
 def check_admin_role(user):
     return hasattr(user, 'profile') and user.profile.role == 'ADMIN'
@@ -82,7 +82,7 @@ class BookDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'relationship_app.can_delete_book'
 
 def search_books(request):
-    form = BookSearchForm(request.GET or None)
+    form = ExampleForm(request.GET or None)
     books = Book.objects.none()
     if form.is_valid():
         query = form.cleaned_data['q']
