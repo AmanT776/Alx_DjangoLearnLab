@@ -6,7 +6,7 @@ from django.dispatch import receiver
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
-class User(AbstractUser):
+class CustomUser(AbstractUser):
     date_of_birth = models.DateField(default=datetime.date.today)
     profile_photo = models.ImageField(upload_to='profile_photos/',blank=True)
 
