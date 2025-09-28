@@ -366,7 +366,7 @@
         "kind": 5,
         "importPath": "api_project.urls",
         "description": "api_project.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('','api.urls')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('',include('api.urls'))\n]",
         "detail": "api_project.urls",
         "documentation": {}
     },
