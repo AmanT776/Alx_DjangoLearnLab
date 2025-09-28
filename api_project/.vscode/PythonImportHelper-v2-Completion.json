@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "generics",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -93,14 +101,6 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
-        "documentation": {}
-    },
-    {
-        "label": "ListAPIView",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
         "documentation": {}
     },
     {
@@ -191,11 +191,11 @@
         "documentation": {}
     },
     {
-        "label": "BookList",
+        "label": "BookListAPIView",
         "kind": 6,
         "importPath": "api.views",
         "description": "api.views",
-        "peekOfCode": "class BookList(ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
+        "peekOfCode": "class BookListAPIView(generics.ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
         "detail": "api.views",
         "documentation": {}
     },
