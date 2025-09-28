@@ -64,6 +64,14 @@
         "documentation": {}
     },
     {
+        "label": "viewsets",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -73,6 +81,14 @@
     },
     {
         "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
         "importPath": "django.urls",
         "description": "django.urls",
         "isExtraImport": true,
@@ -93,6 +109,14 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
         "documentation": {}
     },
     {
@@ -177,8 +201,17 @@
         "kind": 6,
         "importPath": "api.serializers",
         "description": "api.serializers",
-        "peekOfCode": "class BookSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = 'Book'\n        fields = '__all__'",
+        "peekOfCode": "class BookSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Book\n        fields = '__all__'",
         "detail": "api.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "api.urls",
+        "description": "api.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'books_all',BookViewSet,basename='boo_all')\nurlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls))\n]",
+        "detail": "api.urls",
         "documentation": {}
     },
     {
@@ -186,16 +219,25 @@
         "kind": 5,
         "importPath": "api.urls",
         "description": "api.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list')\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls))\n]",
         "detail": "api.urls",
         "documentation": {}
     },
     {
-        "label": "BookListAPIView",
+        "label": "BookList",
         "kind": 6,
         "importPath": "api.views",
         "description": "api.views",
-        "peekOfCode": "class BookListAPIView(generics.ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
+        "peekOfCode": "class BookList(generics.ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer\nclass BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
+        "detail": "api.views",
+        "documentation": {}
+    },
+    {
+        "label": "BookViewSet",
+        "kind": 6,
+        "importPath": "api.views",
+        "description": "api.views",
+        "peekOfCode": "class BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
         "detail": "api.views",
         "documentation": {}
     },
