@@ -112,6 +112,14 @@
         "documentation": {}
     },
     {
+        "label": "obtain_auth_token",
+        "importPath": "rest_framework.authtoken.views",
+        "description": "rest_framework.authtoken.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken.views",
+        "documentation": {}
+    },
+    {
         "label": "DefaultRouter",
         "importPath": "rest_framework.routers",
         "description": "rest_framework.routers",
@@ -125,6 +133,14 @@
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -210,7 +226,7 @@
         "kind": 5,
         "importPath": "api.urls",
         "description": "api.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'books_all',BookViewSet,basename='boo_all')\nurlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls))\n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r'books_all',BookViewSet,basename='boo_all')\nurlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls)),\n     path('api-token-auth/', obtain_auth_token, name='api_token_auth')\n]",
         "detail": "api.urls",
         "documentation": {}
     },
@@ -219,7 +235,7 @@
         "kind": 5,
         "importPath": "api.urls",
         "description": "api.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls))\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"books/\",BookList.as_view(),name='book-list'),\n    path('',include(router.urls)),\n     path('api-token-auth/', obtain_auth_token, name='api_token_auth')\n]",
         "detail": "api.urls",
         "documentation": {}
     },
@@ -228,7 +244,7 @@
         "kind": 6,
         "importPath": "api.views",
         "description": "api.views",
-        "peekOfCode": "class BookList(generics.ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer\nclass BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
+        "peekOfCode": "class BookList(generics.ListAPIView):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer\n    permission_classes = [IsAuthenticated]\nclass BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer\n    permission_classes = [IsAuthenticated]",
         "detail": "api.views",
         "documentation": {}
     },
@@ -237,7 +253,7 @@
         "kind": 6,
         "importPath": "api.views",
         "description": "api.views",
-        "peekOfCode": "class BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer",
+        "peekOfCode": "class BookViewSet(viewsets.ModelViewSet):\n    queryset = Book.objects.all()\n    serializer_class = BookSerializer\n    permission_classes = [IsAuthenticated]",
         "detail": "api.views",
         "documentation": {}
     },
@@ -291,7 +307,7 @@
         "kind": 5,
         "importPath": "api_project.settings",
         "description": "api_project.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'api'\n]",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',\n    'api'",
         "detail": "api_project.settings",
         "documentation": {}
     },
