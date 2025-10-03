@@ -9,6 +9,11 @@ class BookSerializer(serializers.ModelSerializer):
         # '__all__' means include all fields from the Book model:
         # id, title, publication_year, author
         fields = '__all__'
+    def validate(self, data):
+        if len(data['title']) < 5:
+            raise ValidationError("Title must be at least 5 characters long.")
+        return data
+
 
 
 # Serializer for the Author model
