@@ -5,6 +5,7 @@ from .serializers import BookSerializer
 from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.authentication import BasicAuthentication
+from rest_framework import filters
 # Create your views here.
 
 class BookListView(generics.ListAPIView):
@@ -12,6 +13,8 @@ class BookListView(generics.ListAPIView):
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated]
     authentication_classes = [BasicAuthentication]
+    search_fields = ['title','publication_year']
+    filter_backends = [filters.SearchFilter]
     
     def get_queryset(self):
         queryset = Book.objects.all()
