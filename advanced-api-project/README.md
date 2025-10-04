@@ -103,4 +103,67 @@ It allows authenticated users to **view, create, update, and delete books**, and
 - `ordering` – DRF OrderingFilter (`title`, `publication_year`)
 
 
+# 🧪 API Testing Documentation
+
+This document explains the **testing strategy**, **individual test cases**, and **guidelines** for running and interpreting test results for the `advanced-api-project` (Book API).
+
+---
+
+## 1️⃣ Testing Strategy
+
+The goal of testing is to ensure:
+
+- CRUD operations on the **Book model** work as expected.
+- **Filtering, searching, and ordering** functionalities return correct results.
+- **Authentication and permission** rules are enforced properly (only authenticated users can access/modify data).
+- Error handling works (e.g., duplicate books, unauthorized access, staff-only updates).
+
+---
+
+## 2️⃣ Test Cases
+
+### ✅ Book CRUD
+
+- **Create Book**
+  - Input valid data → returns `201 CREATED` and book data.
+  - Input duplicate title → returns `400 BAD REQUEST`.
+
+- **Retrieve Book**
+  - Authenticated user can get book by ID → returns `200 OK`.
+  - Unauthenticated user → returns `403 FORBIDDEN`.
+
+- **Update Book**
+  - Staff user updates book → returns `200 OK` with updated data.
+  - Non-staff user → returns `403 FORBIDDEN`.
+
+- **Delete Book**
+  - Authenticated user can delete book → returns `204 NO CONTENT`.
+  - Unauthenticated user → returns `403 FORBIDDEN`.
+
+---
+
+### 🔍 Filtering & Searching
+
+- `GET /api/books/?title=SomeBook` → returns only matching books.
+- `GET /api/books/?author=John` → returns books written by authors containing “John”.
+- `GET /api/books/?search=physics` → returns books where `title` or `publication_year` matches.
+- `GET /api/books/?ordering=title` → returns books ordered by title.
+
+---
+
+### 🔐 Authentication & Permissions
+
+- Access list view (`/api/books/`) without authentication → returns `403 FORBIDDEN`.
+- Access with valid credentials → returns `200 OK`.
+- Create/Update/Delete with valid authentication → allowed.
+- Update by non-staff user → denied with `403 FORBIDDEN`.
+
+---
+
+## 3️⃣ Running Tests
+
+Run all tests in the **`api` app**:
+
+```bash
+python manage.py test api
 
