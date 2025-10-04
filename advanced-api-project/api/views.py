@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 
-class BookListAPIView(generics.ListAPIView):
+class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated,IsAdminUser]
