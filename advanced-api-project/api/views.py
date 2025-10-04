@@ -10,8 +10,19 @@ from rest_framework.authentication import BasicAuthentication
 class BookListView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly,IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     authentication_classes = [BasicAuthentication]
+    
+    def get_queryset(self):
+        queryset = Book.objects.all()
+        title = self.request.query_params.get("title")
+        author = self.request.query_params.get("author")
+        if title:
+            queryset = queryset.filter(title=title)
+        if author:
+            queryset = queryset.filter(author__name__icontains=author)
+        return queryset
+
 class BookDetailView(generics.RetrieveAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
