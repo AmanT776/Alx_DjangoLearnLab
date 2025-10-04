@@ -26,6 +26,10 @@ class BookUpdateView(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
+    def perform_update(self, serializer):
+        if not self.request.user.is_staff:
+            raise PermissionError("only staff can update books")
+        serializer.save()
 class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
