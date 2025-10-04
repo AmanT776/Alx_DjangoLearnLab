@@ -1,68 +1,106 @@
-# 📚 Django REST Framework – Book API
+# Django Book API
 
-This project provides a simple **Book API** built with Django REST Framework (DRF). It demonstrates how to use **generic class-based views** with authentication, permissions, validation, and CRUD operations.
-
----
-
-## 🚀 Features
-- **List all books**  
-- **Retrieve a single book by ID**  
-- **Create a new book (with duplicate title validation)**  
-- **Update an existing book (staff-only rule)**  
-- **Delete a book**  
-- **Authentication and permissions** applied to all endpoints  
+This project is a **RESTful API** for managing books and authors built with **Django REST Framework (DRF)**.  
+It allows authenticated users to **view, create, update, and delete books**, and supports **filtering, searching, and ordering**.
 
 ---
 
-## 🔐 Authentication & Permissions
-- **Authentication** → Uses DRF’s `BasicAuthentication`.  
-- **Permissions** → Requires `IsAuthenticated` and `IsAdminUser`.  
-  - Only logged-in users who are **admins/staff** can access the API.  
+## 📦 Models
+
+### Author
+- `name`: CharField (max 30) – the name of the author.
+  
+### Book
+- `title`: CharField (max 30) – the book title.
+- `publication_year`: IntegerField – the year the book was published.
+- `author`: ForeignKey to `Author` – links each book to an author.
 
 ---
 
-## 📂 Views Overview
+## ⚡ API Views
 
-### 1. List Books
-class BookListAPIView(generics.ListAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-    authentication_classes = [BasicAuthentication]
-### 2.Retrieve a single book
-class BookDetailView(generics.RetrieveAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-    authentication_classes = [BasicAuthentication]
-### 3. create book
-class BookCreateView(generics.CreateAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-    authentication_classes = [BasicAuthentication]
+### 1. **BookListView**
+- **Type:** `ListAPIView`
+- **URL:** `/books/`
+- **Permissions:** Authenticated users only (`IsAuthenticated`)
+- **Features:**
+  - **Filtering:** by `title` or `author` using query parameters:
+    ```
+    /books/?title=Harry
+    /books/?author=Rowling
+    ```
+  - **Search:** supports DRF `SearchFilter` on `title` and `publication_year`:
+    ```
+    /books/?search=1997
+    ```
+  - **Ordering:** supports DRF `OrderingFilter` on `title` and `publication_year`:
+    ```
+    /books/?ordering=title
+    /books/?ordering=-publication_year
+    ```
 
-    def perform_create(self, serializer):
-        title = serializer.validated_data.get("title")
-        if Book.objects.filter(title=title).exists():
-            raise serializers.ValidationError({"message": "This book already exists."})
+---
 
-### 4. update a book
-class BookUpdateView(generics.UpdateAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-    authentication_classes = [BasicAuthentication]
+### 2. **BookDetailView**
+- **Type:** `RetrieveAPIView`
+- **URL:** `/books/<id>/`
+- **Permissions:** Read-only for unauthenticated users, full access for authenticated (`IsAuthenticatedOrReadOnly`)
+- **Description:** Retrieve details of a single book by ID.
 
-    def perform_update(self, serializer):
-        if not self.request.user.is_staff:
-            raise PermissionError("Only staff can update books")
-        serializer.save()
-### 5. delete a book 
-class BookDeleteView(generics.DestroyAPIView):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-    permission_classes = [IsAuthenticated, IsAdminUser]
-    authentication_classes = [BasicAuthentication]
+---
+
+### 3. **BookCreateView**
+- **Type:** `CreateAPIView`
+- **URL:** `/books/create/`
+- **Permissions:** Authenticated users (`IsAuthenticated`)
+- **Description:** Create a new book.
+- **Validation:** Prevents creating duplicate books with the same title.
+
+---
+
+### 4. **BookUpdateView**
+- **Type:** `UpdateAPIView`
+- **URL:** `/books/update/<id>/`
+- **Permissions:** Only staff users can update books.
+- **Description:** Update existing book details.
+- **Validation:** Raises a `PermissionError` if a non-staff user tries to update.
+
+---
+
+### 5. **BookDeleteView**
+- **Type:** `DestroyAPIView`
+- **URL:** `/books/delete/<id>/`
+- **Permissions:** Authenticated users (`IsAuthenticated`)
+- **Description:** Delete a book.
+
+---
+
+## 🔑 Authentication & Permissions
+
+- **Authentication:** `BasicAuthentication`  
+- **Permissions:** Mixed use of `IsAuthenticated` and `IsAuthenticatedOrReadOnly` depending on the view.  
+- Only staff users can update books.
+
+---
+
+## 🛠 Features Summary
+
+| Feature                 | Endpoint                       | Description                                               |
+|--------------------------|--------------------------------|-----------------------------------------------------------|
+| List books               | `/books/`                      | List all books with optional search, filter, and ordering|
+| Retrieve book            | `/books/<id>/`                 | Get details of a single book                              |
+| Create book              | `/books/create/`               | Add a new book (unique title enforced)                  |
+| Update book              | `/books/update/<id>/`          | Update book (staff only)                                  |
+| Delete book              | `/books/delete/<id>/`          | Delete a book                                            |
+
+---
+
+## 🔍 Query Parameters
+
+- `title` – Filter by book title (exact match or change to `icontains` for partial match)  
+- `author` – Filter by author's name (case-insensitive partial match)  
+- `search` – DRF SearchFilter (`title`, `publication_year`)  
+- `ordering` – DRF OrderingFilter (`title`, `publication_year`)
+
 
 
