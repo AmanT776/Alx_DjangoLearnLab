@@ -3,19 +3,26 @@ from rest_framework import generics
 from .models import Book,Author
 from .serializers import BookSerializer
 from rest_framework import serializers
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from rest_framework.authentication import BasicAuthentication
 # Create your views here.
 
 class BookListAPIView(generics.ListAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    authentication_classes = [BasicAuthentication]
 class BookDetailView(generics.RetrieveAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    authentication_classes = [BasicAuthentication]
 
 class BookCreateView(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    authentication_classes = [BasicAuthentication]
 
     def perform_create(self, serializer):
         title = serializer.validated_data.get("title")
@@ -25,6 +32,8 @@ class BookCreateView(generics.CreateAPIView):
 class BookUpdateView(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    authentication_classes = [BasicAuthentication]
 
     def perform_update(self, serializer):
         if not self.request.user.is_staff:
@@ -33,3 +42,5 @@ class BookUpdateView(generics.UpdateAPIView):
 class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
+    permission_classes = [IsAuthenticated,IsAdminUser]
+    authentication_classes = [BasicAuthentication]
