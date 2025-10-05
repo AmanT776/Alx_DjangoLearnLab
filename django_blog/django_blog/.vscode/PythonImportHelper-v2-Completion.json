@@ -73,6 +73,14 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
         "label": "path",
         "importPath": "django.urls",
         "description": "django.urls",
@@ -192,7 +200,7 @@
         "kind": 5,
         "importPath": "django_blog.settings",
         "description": "django_blog.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'django_blog.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = 'django_blog.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': os.getenv('DB_NAME'),\n        'HOST': os.getenv('DB_HOST'),\n        'PORT': os.getenv('DB_PORT'),\n        'PASSWORD': os.getenv('DB_PASSWORD'),",
         "detail": "django_blog.settings",
         "documentation": {}
     },
@@ -201,7 +209,7 @@
         "kind": 5,
         "importPath": "django_blog.settings",
         "description": "django_blog.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.mysql',\n        'NAME': os.getenv('DB_NAME'),\n        'HOST': os.getenv('DB_HOST'),\n        'PORT': os.getenv('DB_PORT'),\n        'PASSWORD': os.getenv('DB_PASSWORD'),\n        'USER': os.getenv('DB_USER')\n    }\n}",
         "detail": "django_blog.settings",
         "documentation": {}
     },
