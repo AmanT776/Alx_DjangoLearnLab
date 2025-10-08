@@ -1,4 +1,3 @@
-/* Reset basic styles */
 * {
     margin: 0;
     padding: 0;
@@ -25,14 +24,14 @@ body {
     text-align: center;
 }
 
-/* Heading */
+
 .profile-container h2 {
     margin-bottom: 25px;
     color: #333;
     font-size: 1.8rem;
 }
 
-/* Messages */
+
 .messages {
     list-style: none;
     margin-bottom: 20px;
@@ -43,7 +42,6 @@ body {
     font-weight: bold;
 }
 
-/* Form styling */
 form {
     margin-bottom: 30px;
     text-align: left;
@@ -87,7 +85,6 @@ button:hover {
     background-color: #43a047;
 }
 
-/* Profile info below form */
 .profile-info {
     background: #f9f9f9;
     padding: 20px;
@@ -106,7 +103,6 @@ button:hover {
     font-size: 0.95rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
     .profile-container {
         padding: 30px 20px;
