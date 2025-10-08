@@ -9,8 +9,10 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.views.generic import CreateView,ListView,DetailView
+from django.views.generic import CreateView,ListView,DetailView,UpdateView
 from blog.models import Post
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -93,3 +95,15 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post.html'
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Post
+    fields = ['title', 'content']
+    template_name = 'blog/update_post.html'
+
+    def get_success_url(self):
+        return reverse_lazy('post-detail', kwargs={'pk': self.object.pk})
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author

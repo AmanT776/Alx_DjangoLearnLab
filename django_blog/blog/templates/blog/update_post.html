@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/update_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="update-container">
+    <h2>Edit Blog Post</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="success">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Post</button>
+    </form>
+
+    <a href="{% url 'post-detail' object.pk %}" class="back-btn">← Back to Post</a>
+</div>
+{% endblock %}
