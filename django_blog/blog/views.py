@@ -84,22 +84,22 @@ def profile_view(request):
 class PostCreateView(CreateView):
     model = Post
     fields = ['title','content']
-    template_name = 'blog/create_blog.html'
+    template_name = 'blog/post_create.html'
     success_url = reverse_lazy('post-create')
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/posts.html'
+    template_name = 'blog/post_list.html'
 class PostDetailView(DetailView):
     model = Post
-    template_name = 'blog/post.html'
+    template_name = 'blog/post_detail.html'
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
-    template_name = 'blog/update_post.html'
+    template_name = 'blog/post_update.html'
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.object.pk})
@@ -109,7 +109,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return self.request.user == post.author
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    template_name = 'blog/delete_post.html'  
+    template_name = 'blog/post_delete.html'  
     success_url = reverse_lazy('posts')      
 
     def test_func(self):
