@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+<button style="width: 20px; position:absolute; top:0; left:0;">
+    <a href="{%url 'posts'%}">back</a>
+</button>
 <div class="profile-container">
     <h2>Welcome, {{ user.username }}!</h2>
     {% if messages %}

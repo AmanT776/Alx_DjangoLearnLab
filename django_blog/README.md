@@ -83,3 +83,57 @@ It uses Django’s built-in authentication framework (`User` model) with both cl
 #### User Logout
     URL: /logout/
     View: Django’s LogoutView
+
+## Models
+
+### Post Model
+    Field	Type	Description
+    title	CharField	Title of the blog post
+    content	TextField	Full content of the blog post
+    author	ForeignKey(User)	The user who created the post
+    created_at	DateTimeField	Timestamp when post is created
+
+The author field is required; posts cannot exist without an associated user.
+
+### URLs
+URL                     Pattern	Name	View	        Description
+/post/create/	        post-create	    PostCreateView	Create a new post
+/posts/	posts	        posts	        PostListView    List all posts
+/post/<int:pk>/	        post-detail	    PostDetailView	View single post details
+/post/<int:pk>/edit/	post-update	    PostUpdateView	Update an existing post
+/post/<int:pk>/delete/	post-delete	    PostDeleteView	Delete a post
+## Views
+### PostCreateView
+    Class-based view: CreateView
+    Allows authenticated users to create posts.
+    get_success_url redirects to post detail after creation.
+    Template: create_blog.html
+
+### PostListView
+    Class-based view: ListView
+    Displays all posts in reverse chronological order.
+    Template: posts.html
+
+### PostDetailView
+    Class-based view: DetailView
+    Displays post title, content, author, and creation date.
+    Template: post.html
+
+### PostUpdateView
+    Class-based view: UpdateView
+    Allows only the post author to update a post.
+    Template: update_post.html
+    Redirects to post detail after update.
+### PostDeleteView
+    Class-based view: DeleteView
+    Allows only the post author to delete a post.
+    Template: delete_post.html
+    Redirects to post list after deletion.
+
+## Templates
+    Template	        Description
+    create_blog.html	Form for creating new posts
+    posts.html	        Lists all posts with links to detail pages
+    post.html	        Displays full post details
+    update_post.html	Form for editing an existing post
+    delete_post.html	Confirmation page to delete a post
