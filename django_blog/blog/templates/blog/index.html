@@ -1,7 +1,31 @@
-<!DOCTYPE html>
-<html>
-    <head><head/>
-    <body>
-        {% extends "blog/base.html" %}
-    </body>
-</html>
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}My Blog Website{% endblock %}
+
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Discover, Learn, and Share</h1>
+    <p>Our blog helps you stay updated with the latest tech news, tutorials, and insights.</p>
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h2>Read Articles</h2>
+        <p>Explore a variety of articles on programming, web development, AI, and more.</p>
+    </div>
+    <div class="feature">
+        <h2>Learn Tutorials</h2>
+        <p>Step-by-step tutorials to help you grow your skills and stay ahead in tech.</p>
+    </div>
+    <div class="feature">
+        <h2>Share Knowledge</h2>
+        <p>Contribute your own articles and join a community of passionate learners.</p>
+    </div>
+</section>
+{% endblock %}

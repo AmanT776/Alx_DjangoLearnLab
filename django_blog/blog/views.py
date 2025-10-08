@@ -36,7 +36,8 @@ class RegisterUser(CreateView):
 
 class LoginUser(LoginView):
     template_name = 'blog/login.html'
-    redirect_authenticated_user = True
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 def home_view(request):
-    return render(request,'blog/home.html')
+    return render(request,'blog/index.html')

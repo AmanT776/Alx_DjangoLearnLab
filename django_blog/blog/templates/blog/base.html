@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Django Blog{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+     {% block extra_head %}{% endblock %}
+     
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a >Home</a></li>
+                <li><a href="{%url 'home'%}">Home</a></li>
                 <li><a>Blog Posts</a></li>
-                <li><a>Login</a></li>
-                <li><a>Register</a></li>
+                <li><a href="{% url 'register'%}">Register</a></li>
+                <li><a href="{% url 'login'%}">login</a></li>
             </ul>
         </nav>
     </header>
@@ -31,4 +33,3 @@
 
     <script src="{% static 'js/scripts.js' %}"></script>
 </body>
-</html>
