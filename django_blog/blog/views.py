@@ -65,7 +65,7 @@ def profile_view(request):
     if request.method == 'GET':
         user = request.user
         context = {"user": user}
-        return render(request,'blog/profile.html',context)
+        return render(request,'blog/posts/profile.html',context)
     if request.method == 'POST':
         form = UserUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -84,22 +84,22 @@ def profile_view(request):
 class PostCreateView(CreateView):
     model = Post
     fields = ['title','content']
-    template_name = 'blog/create_blog.html'
+    template_name = 'blog/posts/create_blog.html'
     success_url = reverse_lazy('post-create')
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/posts.html'
+    template_name = 'blog/posts/posts.html'
 class PostDetailView(DetailView):
     model = Post
-    template_name = 'blog/post.html'
+    template_name = 'blog/posts/post.html'
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields = ['title', 'content']
-    template_name = 'blog/update_post.html'
+    template_name = 'blog/posts/update_post.html'
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.object.pk})
@@ -109,7 +109,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return self.request.user == post.author
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
-    template_name = 'blog/delete_post.html'  
+    template_name = 'blog/posts/delete_post.html'  
     success_url = reverse_lazy('posts')      
 
     def test_func(self):
