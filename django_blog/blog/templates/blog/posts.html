@@ -15,7 +15,11 @@
                     <h3>{{ post.title }}</h3>
                     <p class="author">by {{ post.author.username }} | {{ post.created_at|date:"F j, Y" }}</p>
                     <p class="content">{{ post.content|truncatewords:30 }}</p>
-                    <a href="{% url 'post-detail' post.pk %}" class="read-more">Read More</a>
+                    <a href="{% url 'post-detail' post.pk %}" style="margin-bottom: 2px;" class="read-more">Read More</a>
+                    {% if user == post.author %}
+                     <a href="{% url 'post-delete' post.pk %}" class="read-more">Delete</a>
+                    {% endif %}
+
                 </div>
             {% endfor %}
         </div>

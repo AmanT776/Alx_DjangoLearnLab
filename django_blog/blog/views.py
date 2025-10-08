@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.views.generic import CreateView,ListView,DetailView,UpdateView
+from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView
 from blog.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -107,3 +107,13 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Post
+    template_name = 'blog/delete_post.html'  
+    success_url = reverse_lazy('posts')      
+
+    def test_func(self):
+        post = self.get_object()
+        return self.request.user == post.author
+
+    

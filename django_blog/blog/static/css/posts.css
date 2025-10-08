@@ -72,7 +72,7 @@ body {
     background-color: #43a047;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .posts-list {
         flex-direction: column;
