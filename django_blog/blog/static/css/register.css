@@ -1,104 +1,19 @@
-/* Reset basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body setup */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #4CAF50, #2e7d32);
-    height: 100vh;
+form {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    border: 1px solid black;
+    width: 50%;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
-
-/* Form container */
-form {
-    background: #fff;
-    padding: 40px 50px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    width: 350px;
-    max-width: 90%;
-}
-
-/* Headline */
-form h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-/* Django form inputs (rendered by {{ form.as_p }}) */
-form p {
-    margin-bottom: 15px;
-}
-
-label {
+.form-control{
     display: block;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
+}
+.form-control label{
+    display: block;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1.5px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-input:focus {
-    border-color: #4CAF50;
-    outline: none;
-}
-
-/* Button styling */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.3s ease;
-}
-
-button:hover {
-    background-color: #43a047;
-}
-
-/* Extra subtle animation */
-form {
-    animation: fadeIn 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Mobile responsive */
-@media (max-width: 480px) {
-    form {
-        padding: 30px 25px;
-    }
-}
