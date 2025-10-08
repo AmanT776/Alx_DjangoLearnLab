@@ -9,6 +9,8 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views.generic import CreateView
+from blog.models import Post
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -76,3 +78,13 @@ def profile_view(request):
         'user': request.user
     }
     return render(request, 'blog/profile.html', context)
+
+class PostCreateView(CreateView):
+    model = Post
+    fields = ['title','content']
+    template_name = 'blog/create_blog.html'
+    success_url = reverse_lazy('post-create')
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+

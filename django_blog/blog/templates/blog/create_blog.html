@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/create_post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="blog-container">
+    <h2>Create a New Blog Post</h2>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="success">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Publish Post</button>
+    </form>
+</div>
+{% endblock %}
