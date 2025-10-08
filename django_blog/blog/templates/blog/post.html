@@ -1,0 +1,22 @@
+{% load static %}
+
+
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="post-detail-container">
+    <div class="post-header">
+        <h1>{{ object.title }}</h1>
+        <p class="author">by {{ object.author.username }} | {{ object.created_at|date:"F j, Y" }}</p>
+    </div>
+
+    <div class="post-content">
+        <p>{{ object.content }}</p>
+    </div>
+
+    <a href="{% url 'posts' %}" class="back-btn">← Back to All Posts</a>
+</div>
+{% endblock %}
