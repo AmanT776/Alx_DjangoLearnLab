@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView
 from blog.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
