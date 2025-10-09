@@ -10,9 +10,10 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.generic import CreateView,ListView,DetailView,UpdateView,DeleteView
-from blog.models import Post
+from blog.models import Comment, Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
+from django.forms import ModelForm
 
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
@@ -116,5 +117,36 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        widgets = {
+            'content': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Write your comment here...',
+                'rows': 4,
+            }),
+            # You can also use forms.TextInput for shorter comments
+        }
+        labels = {
+            'content': '',
+        }
+
+    def clean_content(self):
+        content = self.cleaned_data.get('content', '').strip()
+        if not content:
+            raise ValidationError("Comment cannot be empty.")
+        if len(content) < 3:
+            raise ValidationError("Comment is too short (minimum 3 characters).")
+        if len(content) > 500:
+            raise ValidationError("Comment is too long (maximum 500 characters).")
+        forbidden_words = ['badword1', 'badword2', 'offensive']  
+        for word in forbidden_words:
+            if word.lower() in content.lower():
+                raise ValidationError("Your comment contains inappropriate language.")
+
+        return content
 
     
