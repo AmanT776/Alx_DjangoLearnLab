@@ -1,0 +1,52 @@
+.landing-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.landing-container h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.landing-container p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.post-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.post-card h2 {
+    margin-top: 0;
+}
+
+.post-card p {
+    color: #555;
+}
+
+.btn-read-more {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-read-more:hover {
+    background-color: #0056b3;
+}

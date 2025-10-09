@@ -195,3 +195,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('post-detail', kwargs={'pk': self.object.post.pk})
+
+def landing_posts(request):
+    posts = Post.objects.all().order_by('-published_date')
+    return render(request, 'blog/landing_posts.html', {'posts': posts})

@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{%block extra_head%}
+<link rel="stylesheet" href="{%static 'css/landing_posts.css'%}"/>
+{%endblock%}
+{% block title %}Welcome | My Blog{% endblock %}
+
+{% block content %}
+<div class="landing-container">
+    <h1>Welcome to My Blog</h1>
+    <p>Discover our latest posts. Register to read full articles!</p>
+
+    <div class="posts">
+        {% for post in posts %}
+            <div class="post-card">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content|truncatewords:30 }}...</p>
+                <a href="{% url 'register' %}" class="btn-read-more">Read More</a>
+            </div>
+        {% empty %}
+            <p>No posts available at the moment. Check back later!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
