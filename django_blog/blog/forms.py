@@ -36,10 +36,5 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'content', 'tags']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
-            'tags': TagWidget(attrs={'class': 'form-control', 'placeholder': 'Add tags'})
-        }
-        help_texts = {
-            'tags': 'Separate multiple tags with commas.'
+            'tags': TagWidget(attrs={'class': 'form-control', 'placeholder': 'Add tags'}),
         }
