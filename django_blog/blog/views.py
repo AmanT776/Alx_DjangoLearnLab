@@ -92,7 +92,7 @@ class PostCreateView(CreateView):
         return super().form_valid(form)
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/post_list.html'
+    template_name = 'blog/posts_list.html'
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
