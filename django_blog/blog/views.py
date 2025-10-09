@@ -205,6 +205,17 @@ def landing_posts(request):
     posts = Post.objects.all().order_by('-published_date')
     return render(request, 'blog/landing_posts.html', {'posts': posts})
 
-def posts_by_tag(request, tag_name):
-    posts = Post.objects.filter(tags__name__in=[tag_name]).order_by('-published_date')
-    return render(request, 'blog/posts_list.html', {'posts': posts, 'tag_name': tag_name})
+class PostsByTagListView(ListView):
+    model = Post
+    template_name = 'blog/posts_list.html'
+    context_object_name = 'object_list'
+    ordering = ['-published_date']
+
+    def get_queryset(self):
+        tag_name = self.kwargs.get('tag_name')
+        return Post.objects.filter(tags__name__in=[tag_name]).order_by('-published_date')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tag_name'] = self.kwargs.get('tag_name')
+        return context
