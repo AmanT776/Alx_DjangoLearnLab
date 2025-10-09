@@ -27,7 +27,7 @@
                 <p>{{ comment.content }}</p>
 
                 {% if user == comment.author %}
-                    <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-outline-primary">Edit</a>
+                    <a href="{% url 'comment_update' comment.pk %}" class="btn btn-outline-primary">Edit</a>
                     <a href="{% url 'comment_delete' comment.pk %}" class="btn btn-outline-danger">Delete</a>
                 {% endif %}
             </div>
