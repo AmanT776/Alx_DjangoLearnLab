@@ -205,7 +205,7 @@ def landing_posts(request):
     posts = Post.objects.all().order_by('-published_date')
     return render(request, 'blog/landing_posts.html', {'posts': posts})
 
-class PostsByTagListView(ListView):
+class PostByTagListView(ListView):
     model = Post
     template_name = 'blog/posts_list.html'
     context_object_name = 'object_list'
