@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy,reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
@@ -14,6 +14,7 @@ from blog.models import Comment, Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
+
 
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
@@ -113,7 +114,7 @@ class PostDetailView(DetailView):
             comment.post = self.object
             comment.author = request.user
             comment.save()
-            return redirect('post_detail', pk=self.object.pk)
+            return redirect('post-detail', pk=self.object.pk)
         context = self.get_context_data()
         context['form'] = form
         return self.render_to_response(context)
@@ -182,7 +183,7 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return self.request.user == comment.author
 
     def get_success_url(self):
-        return reverse_lazy('post_detail', kwargs={'pk': self.object.post.pk})
+        return reverse_lazy('post-detail', kwargs={'pk': self.object.post.pk})
 
 class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Comment
@@ -193,4 +194,4 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return self.request.user == comment.author
 
     def get_success_url(self):
-        return reverse_lazy('post_detail', kwargs={'pk': self.object.post.pk})
+        return reverse('post-detail', kwargs={'pk': self.object.post.pk})

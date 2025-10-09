@@ -1,24 +1,54 @@
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | My Blog</title>
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+</head>
+<body>
 
+    <div class="container">
+        <div class="back-button">
+            <a href="{% url 'posts' %}" class="btn-back">← Back to Posts</a>
+        </div>
 
+        <h2 class="post-title">{{ post.title }}</h2>
+        <p class="post-body">{{ post.content }}</p>
+        <hr>
 
-{% block extra_head %}
-<link rel="stylesheet" href="{% static 'css/post.css' %}">
-{% endblock %}
+        <h4>Comments ({{ post.comments.count }})</h4>
 
-{% block content %}
-<div class="post-detail-container">
-    <div class="post-header">
-        <h1>{{ object.title }}</h1>
-        <p class="author">by {{ object.author.username }} | {{ object.created_at|date:"F j, Y" }}</p>
+        {% for comment in comments %}
+            <div class="comment">
+                <strong>{{ comment.author.username }}</strong>
+                <small>{{ comment.created_at|date:"M d, Y H:i" }}</small>
+                <p>{{ comment.content }}</p>
+
+                {% if user == comment.author %}
+                    <a href="{% url 'comment_edit' comment.pk %}" class="btn btn-outline-primary">Edit</a>
+                    <a href="{% url 'comment_delete' comment.pk %}" class="btn btn-outline-danger">Delete</a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+
+        <hr>
+
+        {% if user.is_authenticated %}
+            <form method="POST" class="comment-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-post">Post Comment</button>
+            </form>
+        {% else %}
+            <div class="login-reminder">
+                You must <a href="{% url 'login' %}">login</a> to post a comment.
+            </div>
+        {% endif %}
     </div>
 
-    <div class="post-content">
-        <p>{{ object.content }}</p>
-    </div>
-
-    <a href="{% url 'posts' %}" class="back-btn">← Back to All Posts</a>
-    <a href="{% url 'post-update' post.pk %}" class="back-btn">Update Post</a>
-
-</div>
-{% endblock %}
+</body>
+</html>
