@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Comment</title>
+    <link rel="stylesheet" href="{% static 'css/comment_form.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h3>Edit Comment</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="{% url 'post-detail' comment.post.pk %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
