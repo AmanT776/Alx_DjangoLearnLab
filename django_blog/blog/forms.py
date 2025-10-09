@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from .models import Comment,Post
 from django import forms
+from taggit.forms import TagWidget
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -37,7 +38,7 @@ class PostForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
-            'tags': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Add tags separated by commas'})
+            'tags': TagWidget(attrs={'class': 'form-control', 'placeholder': 'Add tags'})
         }
         help_texts = {
             'tags': 'Separate multiple tags with commas.'
