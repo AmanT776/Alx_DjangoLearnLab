@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from .models import Comment
+from .models import Comment,Post
 from django import forms
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -30,3 +30,15 @@ class CommentForm(forms.ModelForm):
                 raise ValidationError("Your comment contains inappropriate language.")
 
         return content
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'tags']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'rows': 6}),
+            'tags': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Add tags separated by commas'})
+        }
+        help_texts = {
+            'tags': 'Separate multiple tags with commas.'
+        }

@@ -15,7 +15,7 @@ from blog.models import Comment, Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
-from .forms import CommentForm
+from .forms import CommentForm,PostForm
 
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
@@ -85,14 +85,18 @@ def profile_view(request):
     }
     return render(request, 'blog/profile.html', context)
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title','content']
+    form_class = PostForm
     template_name = 'blog/post_create.html'
-    success_url = reverse_lazy('post-create')
+    
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('post-detail', kwargs={'pk': self.object.pk})
+    
 class PostListView(ListView):
     model = Post
     template_name = 'blog/posts_list.html'
@@ -123,7 +127,7 @@ class PostDetailView(DetailView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    form_class = PostForm
     template_name = 'blog/post_update.html'
 
     def get_success_url(self):
@@ -132,6 +136,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     def test_func(self):
         post = self.get_object()
         return self.request.user == post.author
+
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     template_name = 'blog/post_delete.html'  
@@ -186,3 +191,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def landing_posts(request):
     posts = Post.objects.all().order_by('-published_date')
     return render(request, 'blog/landing_posts.html', {'posts': posts})
+
+def posts_by_tag(request, tag_name):
+    posts = Post.objects.filter(tags__name__in=[tag_name]).order_by('-published_date')
+    return render(request, 'blog/posts_list.html', {'posts': posts, 'tag_name': tag_name})
