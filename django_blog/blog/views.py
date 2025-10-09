@@ -16,6 +16,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
 from .forms import CommentForm,PostForm
+from django.db.models import Q
+
 
 # Create your views here.
 class UserRegistrationForm(UserCreationForm):
@@ -100,6 +102,17 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class PostListView(ListView):
     model = Post
     template_name = 'blog/posts_list.html'
+    def get_queryset(self):
+        queryset = super().get_queryset().order_by('-published_date')
+        query = self.request.GET.get('q')
+        if query:
+            queryset = queryset.filter(
+                Q(title__icontains=query) |
+                Q(content__icontains=query) |
+                Q(tags__name__icontains=query)
+            ).distinct()
+        return queryset
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
