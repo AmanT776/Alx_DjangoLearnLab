@@ -97,6 +97,27 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
+    context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = self.object.comments.all().order_by('-created_at')
+        context['form'] = CommentForm()
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = CommentForm(request.POST)
+        if form.is_valid() and request.user.is_authenticated:
+            comment = form.save(commit=False)
+            comment.post = self.object
+            comment.author = request.user
+            comment.save()
+            return redirect('post_detail', pk=self.object.pk)
+        context = self.get_context_data()
+        context['form'] = form
+        return self.render_to_response(context)
+
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
@@ -128,7 +149,6 @@ class CommentForm(forms.ModelForm):
                 'placeholder': 'Write your comment here...',
                 'rows': 4,
             }),
-            # You can also use forms.TextInput for shorter comments
         }
         labels = {
             'content': '',
