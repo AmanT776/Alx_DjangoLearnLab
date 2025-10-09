@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
      home_view, LoginUser, PostCreateView, PostListView, profile_view, RegisterUser,
      PostDetailView,PostUpdateView,PostDeleteView,CommentUpdateView, CommentDeleteView,
-     landing_posts
+     landing_posts,CommentCreateView
 )
 from django.contrib.auth.views import LogoutView
 
@@ -17,6 +17,7 @@ urlpatterns = [
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+     path('post/<int:post_pk>/comment/new/', CommentCreateView.as_view(), name='comment_create'),
     path('comment/<int:pk>/edit/', CommentUpdateView.as_view(), name='comment_edit'),
     path('comment/<int:pk>/delete/', CommentDeleteView.as_view(), name='comment_delete'),
     path('home/posts', landing_posts, name='landing_posts')
